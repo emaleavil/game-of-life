@@ -417,38 +417,38 @@
                             </dependency>
                         </dependencies>
                     </plugin>
-		<plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <version>${cobertura.version}</version>
-            <configuration>
-                <formats>
-                    <format>html</format>
-                    <format>xml</format>
-                </formats>
-            </configuration>
-        </plugin>
                 </plugins>
 
             </build>
             <reporting>
-                <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>cobertura-maven-plugin</artifactId>
-                        <version></version>
+                        <version>${cobertura.version}</version>
                         <configuration>
                             <formats>
-                                <format>html</format>
+                                <format>html</format>       
                                 <format>xml</format>
                             </formats>
+                            <outputDirectory>${project.build.directory}/surefire-reports/cobertura</outputDirectory>        
+                            <instrumentation>
+                                <ignoreTrivial>true</ignoreTrivial>         
+                                <ignores>
+                                    <ignore>org.slf4j.Logger.*</ignore>     
+                                </ignores>
+                                <excludes>
+                                    <exclude>**/Example.class</exclude>     
+                                </excludes>
+                            </instrumentation>
                         </configuration>
-			<exclusions>
-			     <exclusion>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-			     </exclusion>
-			   </exclusions>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>          
+                                <goals>
+                                    <goal>cobertura</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
