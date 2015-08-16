@@ -446,16 +446,7 @@
                             <formats>
                                 <format>html</format>       
                                 <format>xml</format>
-                            </formats>     
-                            <instrumentation>
-                                <ignoreTrivial>true</ignoreTrivial>         
-                                <ignores>
-                                    <ignore>org.slf4j.Logger.*</ignore>     
-                                </ignores>
-                                <excludes>
-                                    <exclude>**/Example.class</exclude>     
-                                </excludes>
-                            </instrumentation>
+                            </formats>
                         </configuration>
                     </plugin>
                     <plugin>
