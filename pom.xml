@@ -443,6 +443,12 @@
                                 <format>xml</format>
                             </formats>
                         </configuration>
+			<exclusions>
+			     <exclusion>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+			     </exclusion>
+			   </exclusions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
